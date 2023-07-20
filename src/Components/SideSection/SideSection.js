@@ -4,12 +4,12 @@ const SideSection = (props) => {
   return (
     <React.Fragment>
       {props.flag ? (
-        <div>
+        <section>
           <img src={props.flag} alt={props.flagInfo} />
           <img src={props.coatOfArms} alt='coat of arms' />
-        </div>
+        </section>
       ) : (
-        <div>Country flag and coat of arms panel</div>
+        <section>Country flag and coat of arms panel</section>
       )}
     </React.Fragment>
   );

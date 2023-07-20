@@ -19,7 +19,7 @@ const MainSection = (props) => {
   }
 
   return (
-    <div>
+    <section>
       {props.officialName ? (
         <div>
           <h2>{props.commonName}</h2>
@@ -45,7 +45,7 @@ const MainSection = (props) => {
       ) : (
         <div>Country information panel or error display</div>
       )}
-    </div>
+    </section>
   );
 };
 export default MainSection;

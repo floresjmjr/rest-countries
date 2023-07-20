@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Header/Header';
 import MainSection from '../MainSection/MainSection';
 import SideSection from '../SideSection/SideSection';
+import PageTitle from '../PageTitle/PageTitle';
 import './WebPage.css';
 
 const WebPage = () => {
@@ -34,9 +35,10 @@ const WebPage = () => {
   };
 
   return (
-    <React.Fragment>
+    <div className='body'>
+      <PageTitle></PageTitle>
       <Header lookupFlagHandler={lookupFlagHandler} />
-      <div className='sections'>
+      <main className='sections'>
         <MainSection
           officialName={countryInfo.officialName}
           commonName={countryInfo.commonName}
@@ -46,8 +48,8 @@ const WebPage = () => {
           population={countryInfo.population}
         />
         <SideSection flag={countryInfo.flag} coatOfArms={countryInfo.coatOfArms} />
-      </div>
-    </React.Fragment>
+      </main>
+    </div>
   );
 };
 
