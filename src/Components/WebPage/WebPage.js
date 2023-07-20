@@ -8,8 +8,8 @@ const WebPage = () => {
   const [countryInfo, setCountryInfo] = useState({
     commoneName: '',
     officialName: '',
-    currencySymbol: '',
-    language: '',
+    currencies: '',
+    languages: '',
     capitalCity: '',
     population: '',
     flag: '',
@@ -23,8 +23,8 @@ const WebPage = () => {
     setCountryInfo({
       commoneName: results[0].name.common,
       officialName: results[0].name.official,
-      currencySymbol: results[0].currencies, //iterate
-      language: results[0].languages, //iterate
+      currencies: results[0].currencies,
+      languages: results[0].languages,
       capitalCity: results[0].capital[0],
       population: results[0].population,
       flag: results[0].flags.svg,
@@ -37,7 +37,14 @@ const WebPage = () => {
     <React.Fragment>
       <Header lookupFlagHandler={lookupFlagHandler} />
       <div className='sections'>
-        <MainSection />
+        <MainSection
+          officialName={countryInfo.officialName}
+          commonName={countryInfo.commonName}
+          currencies={countryInfo.currencies}
+          languages={countryInfo.languages}
+          capitalCity={countryInfo.capitalCity}
+          population={countryInfo.population}
+        />
         <SideSection flag={countryInfo.flag} coatOfArms={countryInfo.coatOfArms} />
       </div>
     </React.Fragment>
