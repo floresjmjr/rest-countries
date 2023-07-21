@@ -17,19 +17,20 @@ const HomePage = () => {
     flagInfo: '',
     coatOfArms: '',
   });
-  const [fetchError, setFetchError] = useState({ searchTerm: '', value: '' });
+  const [fetchError, setFetchError] = useState({ searchTerm: '', message: '' });
 
   const lookupFlagHandler = async (country) => {
+    console.log('country', country);
     let rawData = '';
     let results = {};
     try {
       rawData = await fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`);
       results = await rawData.json();
     } catch (error) {
-      setFetchError({ searchTerm: country, value: error });
+      setFetchError({ searchTerm: country, message: error });
       setCountryInfo({});
     }
-
+    console.log('results', results);
     if (results[0]) {
       setCountryInfo({
         commonName: results[0].name.common,
@@ -42,11 +43,11 @@ const HomePage = () => {
         flagInfo: results[0].flags.alt,
         coatOfArms: results[0].coatOfArms.png,
       });
-      if (fetchError.value) {
+      if (fetchError.message) {
         setFetchError({});
       }
-    } else if (results.status === 404) {
-      setFetchError({ searchTerm: country, value: results.message });
+    } else {
+      setFetchError({ searchTerm: country, message: results.message });
       setCountryInfo({});
     }
   };

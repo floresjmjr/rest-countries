@@ -8,7 +8,7 @@ const Header = (props) => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    props.lookupFlagHandler(countryValue);
+    props.lookupFlagHandler(displayCountry);
     setCountryValue('');
     setDisplayCountry('');
   };

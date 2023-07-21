@@ -3,10 +3,9 @@ import './MainSection.css';
 
 const MainSection = (props) => {
   let errorMessage = 'Country Information Panel';
-  if (props.fetchError.value === 'Not Found') {
-    errorMessage = `"${props.fetchError.searchTerm}" is NOT a country, please try again.`;
-  } else if (props.fetchError.value) {
-    errorMessage = `There was an error retreiving the country information: ${props.fetchError.value}.`;
+  console.log('fetcherror', props.fetchError);
+  if (props.fetchError.message) {
+    errorMessage = `When searching for "${props.fetchError.searchTerm}", the server returned an error: ${props.fetchError.message}.`;
   }
 
   const currencyList = [];
@@ -14,8 +13,8 @@ const MainSection = (props) => {
     for (let currency in props.currencies) {
       currencyList.push(
         <li key={currency}>
-          {props.currencies[currency].name} ( <u>symbol:</u> {props.currencies[currency].symbol} | <u>code:</u>{' '}
-          {currency} )
+          {props.currencies[currency].name} ( <u>symbol:</u> {props.currencies[currency].symbol} |{' '}
+          <u>code:</u> {currency} )
         </li>
       );
     }
