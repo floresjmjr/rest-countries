@@ -24,7 +24,7 @@ const Header = (props) => {
           onChange={onInputChange}
           autoFocus
         ></input>
-        <button type='submit'>submit</button>
+        <button type='submit'>Submit</button>
       </form>
     </header>
   );

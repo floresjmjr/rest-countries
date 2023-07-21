@@ -14,8 +14,8 @@ const MainSection = (props) => {
     for (let currency in props.currencies) {
       currencyList.push(
         <li key={currency}>
-          {props.currencies[currency].name}
-          (symbol: {props.currencies[currency].symbol} code: {currency})
+          {props.currencies[currency].name} (symbol: {props.currencies[currency].symbol} | code:{' '}
+          {currency})
         </li>
       );
     }
@@ -34,22 +34,22 @@ const MainSection = (props) => {
         {props.officialName ? (
           <div className='main-section-content'>
             <h2 className='main-section-title'>{props.commonName}</h2>
-            <dl>
-              <dt>Common Name</dt>
+            <dl className='country-details'>
+              <dt>Common Name:</dt>
               <dd>{props.commonName}</dd>
-              <dt>Official Name</dt>
+              <dt>Official Name:</dt>
               <dd>{props.officialName}</dd>
-              <dt>Currencies</dt>
+              <dt>Currencies:</dt>
               <dd>
                 <ul>{currencyList}</ul>
               </dd>
-              <dt>Languages</dt>
+              <dt>Languages:</dt>
               <dd>
                 <ul>{languageList}</ul>
               </dd>
-              <dt>Capital City</dt>
+              <dt>Capital City:</dt>
               <dd>{props.capitalCity}</dd>
-              <dt>Population</dt>
+              <dt>Population:</dt>
               <dd>{props.population}</dd>
             </dl>
           </div>

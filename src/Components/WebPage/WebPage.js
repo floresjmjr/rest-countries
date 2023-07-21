@@ -18,7 +18,9 @@ const WebPage = () => {
     coatOfArms: '',
   });
   const [fetchError, setFetchError] = useState({ searchTerm: '', value: '' });
+
   console.log('fetchError', fetchError);
+
   const lookupFlagHandler = async (country) => {
     let rawData = '';
     let results = {};
@@ -40,11 +42,13 @@ const WebPage = () => {
         languages: results[0].languages,
         capitalCity: results[0].capital[0],
         population: results[0].population,
-        flag: results[0].flags.svg,
+        flag: results[0].flags.png,
         flagInfo: results[0].flags.alt,
-        coatOfArms: results[0].coatOfArms.svg,
+        coatOfArms: results[0].coatOfArms.png,
       });
-      setFetchError({});
+      if (fetchError.value) {
+        setFetchError({});
+      }
     } else if (results.status === 404) {
       setFetchError({ searchTerm: country, value: 'Not Found' });
       setCountryInfo({});
