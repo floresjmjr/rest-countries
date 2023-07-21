@@ -3,7 +3,7 @@
 - A website that displays information about a country.  
 - The website contains two sections, the country information panel and the flag and coat of arms panel.  
 - The country information comes from https://restcountries.com/
-
+- Currently deployed at Netlify (https://eclectic-semolina-b8e51c.netlify.app)
 ### Country Information Panel
 - Common Name
 - Official Name
