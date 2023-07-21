@@ -3,7 +3,6 @@ import './MainSection.css';
 
 const MainSection = (props) => {
   let errorMessage = 'Country Information Panel';
-  console.log('fetcherror', props.fetchError);
   if (props.fetchError.message) {
     errorMessage = `When searching for "${props.fetchError.searchTerm}", the server returned an error: ${props.fetchError.message}.`;
   }
