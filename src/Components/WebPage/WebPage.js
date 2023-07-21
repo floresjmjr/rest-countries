@@ -17,21 +17,38 @@ const WebPage = () => {
     flagInfo: '',
     coatOfArms: '',
   });
-
+  const [fetchError, setFetchError] = useState({ searchTerm: '', value: '' });
+  console.log('fetchError', fetchError);
   const lookupFlagHandler = async (country) => {
-    const rawData = await fetch(`https://restcountries.com/v3.1/name/${country}`);
-    const results = await rawData.json();
-    setCountryInfo({
-      commonName: results[0].name.common,
-      officialName: results[0].name.official,
-      currencies: results[0].currencies,
-      languages: results[0].languages,
-      capitalCity: results[0].capital[0],
-      population: results[0].population,
-      flag: results[0].flags.svg,
-      flagInfo: results[0].flags.alt,
-      coatOfArms: results[0].coatOfArms.svg,
-    });
+    let rawData = '';
+    let results = {};
+    try {
+      rawData = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+      results = await rawData.json();
+    } catch (error) {
+      setFetchError({ searchTerm: country, value: 'Cert Invalid' });
+      setCountryInfo({});
+    }
+
+    console.log('results', results);
+    if (results[0]) {
+      console.log('status', 200);
+      setCountryInfo({
+        commonName: results[0].name.common,
+        officialName: results[0].name.official,
+        currencies: results[0].currencies,
+        languages: results[0].languages,
+        capitalCity: results[0].capital[0],
+        population: results[0].population,
+        flag: results[0].flags.svg,
+        flagInfo: results[0].flags.alt,
+        coatOfArms: results[0].coatOfArms.svg,
+      });
+      setFetchError({});
+    } else if (results.status === 404) {
+      setFetchError({ searchTerm: country, value: 'Not Found' });
+      setCountryInfo({});
+    }
   };
 
   return (
@@ -47,8 +64,13 @@ const WebPage = () => {
             languages={countryInfo.languages}
             capitalCity={countryInfo.capitalCity}
             population={countryInfo.population}
+            fetchError={fetchError}
           />
-          <SideSection flag={countryInfo.flag} coatOfArms={countryInfo.coatOfArms} />
+          <SideSection
+            flag={countryInfo.flag}
+            coatOfArms={countryInfo.coatOfArms}
+            fetchError={fetchError}
+          />
         </main>
       </div>
     </div>

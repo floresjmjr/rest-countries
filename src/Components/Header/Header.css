@@ -22,6 +22,7 @@
   height: 30px;
   border-radius: 5px;
   text-align: center;
+  outline: none;
 }
 
 /* total width 28% */
