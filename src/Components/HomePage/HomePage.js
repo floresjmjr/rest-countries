@@ -26,7 +26,7 @@ const HomePage = () => {
       rawData = await fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`);
       results = await rawData.json();
     } catch (error) {
-      setFetchError({ searchTerm: country, value: 'Cert Invalid' });
+      setFetchError({ searchTerm: country, value: error });
       setCountryInfo({});
     }
 
@@ -46,7 +46,7 @@ const HomePage = () => {
         setFetchError({});
       }
     } else if (results.status === 404) {
-      setFetchError({ searchTerm: country, value: 'Not Found' });
+      setFetchError({ searchTerm: country, value: results.message });
       setCountryInfo({});
     }
   };

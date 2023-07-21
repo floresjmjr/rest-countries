@@ -14,8 +14,8 @@ const MainSection = (props) => {
     for (let currency in props.currencies) {
       currencyList.push(
         <li key={currency}>
-          {props.currencies[currency].name} (symbol: {props.currencies[currency].symbol} | code:{' '}
-          {currency})
+          {props.currencies[currency].name} ( <u>symbol:</u> {props.currencies[currency].symbol} | <u>code:</u>{' '}
+          {currency} )
         </li>
       );
     }
@@ -50,7 +50,7 @@ const MainSection = (props) => {
               <dt>Capital City:</dt>
               <dd>{props.capitalCity}</dd>
               <dt>Population:</dt>
-              <dd>{props.population}</dd>
+              <dd>{props.population.toLocaleString('en-US')}</dd>
             </dl>
           </div>
         ) : (
