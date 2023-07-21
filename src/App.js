@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import WebPage from './Components/WebPage/WebPage';
-
+import HomePage from './Components/HomePage/HomePage';
 
 function App() {
-  return (<WebPage></WebPage>);
+  return <HomePage></HomePage>;
 }
 
 export default App;

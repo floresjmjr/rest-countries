@@ -3,9 +3,9 @@ import Header from '../Header/Header';
 import MainSection from '../MainSection/MainSection';
 import SideSection from '../SideSection/SideSection';
 import PageTitle from '../PageTitle/PageTitle';
-import './WebPage.css';
+import './HomePage.css';
 
-const WebPage = () => {
+const HomePage = () => {
   const [countryInfo, setCountryInfo] = useState({
     commoneName: '',
     officialName: '',
@@ -23,7 +23,7 @@ const WebPage = () => {
     let rawData = '';
     let results = {};
     try {
-      rawData = await fetch(`https://restcountries.com/v3.1/name/${country}`);
+      rawData = await fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`);
       results = await rawData.json();
     } catch (error) {
       setFetchError({ searchTerm: country, value: 'Cert Invalid' });
@@ -77,4 +77,4 @@ const WebPage = () => {
   );
 };
 
-export default WebPage;
+export default HomePage;
