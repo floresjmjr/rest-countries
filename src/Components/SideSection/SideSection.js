@@ -1,17 +1,18 @@
 import React from 'react';
+import './SideSection.css';
 
 const SideSection = (props) => {
   return (
-    <React.Fragment>
+    <section className='side-section'>
       {props.flag ? (
-        <section>
+        <div className="flags">
           <img src={props.flag} alt={props.flagInfo} />
           <img src={props.coatOfArms} alt='coat of arms' />
-        </section>
+        </div>
       ) : (
-        <section>Country flag and coat of arms panel</section>
+        <p>Country flag and coat of arms panel</p>
       )}
-    </React.Fragment>
+    </section>
   );
 };
 

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import './Header.css';
 
 const Header = (props) => {
   const inputRef = useRef();
@@ -10,12 +11,12 @@ const Header = (props) => {
   };
 
   return (
-    <div className='header'>
-      <form onSubmit={onSubmitHandler}>
-        <input type='text' placeholder='search box' ref={inputRef}></input>
+    <header className='search-header'>
+      <form className='search-form' onSubmit={onSubmitHandler}>
+        <input type='text' placeholder='Search box' ref={inputRef} autofocus></input>
         <button type='submit'>submit</button>
       </form>
-    </div>
+    </header>
   );
 };
 

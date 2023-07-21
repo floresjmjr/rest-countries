@@ -22,7 +22,7 @@ const WebPage = () => {
     const rawData = await fetch(`https://restcountries.com/v3.1/name/${country}`);
     const results = await rawData.json();
     setCountryInfo({
-      commoneName: results[0].name.common,
+      commonName: results[0].name.common,
       officialName: results[0].name.official,
       currencies: results[0].currencies,
       languages: results[0].languages,
@@ -36,19 +36,21 @@ const WebPage = () => {
 
   return (
     <div className='body'>
-      <PageTitle></PageTitle>
-      <Header lookupFlagHandler={lookupFlagHandler} />
-      <main className='sections'>
-        <MainSection
-          officialName={countryInfo.officialName}
-          commonName={countryInfo.commonName}
-          currencies={countryInfo.currencies}
-          languages={countryInfo.languages}
-          capitalCity={countryInfo.capitalCity}
-          population={countryInfo.population}
-        />
-        <SideSection flag={countryInfo.flag} coatOfArms={countryInfo.coatOfArms} />
-      </main>
+      <div className='body-container'>
+        <PageTitle></PageTitle>
+        <Header lookupFlagHandler={lookupFlagHandler} />
+        <main className='sections'>
+          <MainSection
+            officialName={countryInfo.officialName}
+            commonName={countryInfo.commonName}
+            currencies={countryInfo.currencies}
+            languages={countryInfo.languages}
+            capitalCity={countryInfo.capitalCity}
+            population={countryInfo.population}
+          />
+          <SideSection flag={countryInfo.flag} coatOfArms={countryInfo.coatOfArms} />
+        </main>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,20 @@
+.title-page {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.title-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid gray;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 400px;
+}
+
+.title-page-container h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

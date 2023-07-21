@@ -1,3 +1,17 @@
 .sections {
   display: flex;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  background-color: #e8e8e8;
+  width: 100%;
+}
+
+.body-container {
+  max-width: 1140px;
+  width: 100%;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
 }
