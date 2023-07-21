@@ -46,7 +46,7 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
   .main-section {
     width: 92%;
     margin: 0 4% 0 4%;

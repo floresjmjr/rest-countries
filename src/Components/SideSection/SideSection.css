@@ -27,7 +27,8 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 850px) {
   .side-section {
     width: 92%;
     margin: 20px 4% 0 4%;
@@ -38,11 +39,8 @@
   .country-details > dt {
     font-size: 1rem;
   }
-}
-
-@media screen and (max-width: 800px) {
   .flags img {
-    max-width: 150px;
+    max-width: 200px;
     margin: 50px 0px 10px 0;
   }
 }
