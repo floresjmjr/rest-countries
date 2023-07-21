@@ -1,29 +1,35 @@
 import { useState } from 'react';
 import './Header.css';
+import AutoCompleteCountries from './AutoCompleteCountries';
 
 const Header = (props) => {
-  const [country, setCountry] = useState('');
+  const [countryValue, setCountryValue] = useState('');
+  const [displayCountry, setDisplayCountry] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    props.lookupFlagHandler(country);
-    setCountry('');
+    props.lookupFlagHandler(countryValue);
+    setCountryValue('');
+    setDisplayCountry('');
   };
 
-  const onInputChange = (e) => {
-    setCountry(e.target.value);
+  const onInputChange = (e, value) => {
+    setCountryValue(value);
+  };
+
+  const onDisplayInputChange = (e, value) => {
+    setDisplayCountry(value);
   };
 
   return (
     <header className='search-header'>
       <form className='search-form' onSubmit={onSubmitHandler}>
-        <input
-          type='text'
-          placeholder='Search box'
-          value={country}
-          onChange={onInputChange}
-          autoFocus
-        ></input>
+        <AutoCompleteCountries
+          countryValue={countryValue}
+          displayCountry={displayCountry}
+          onInputChange={onInputChange}
+          onDisplayInputChange={onDisplayInputChange}
+        />
         <button type='submit'>Submit</button>
       </form>
     </header>
