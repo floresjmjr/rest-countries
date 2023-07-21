@@ -9,6 +9,7 @@ const AutoCompleteCountries = (props) => {
   return (
     <Autocomplete
       freeSolo
+      disableClearable
       value={props.countryValue}
       inputValue={props.displayCountry}
       onChange={props.onInputChange}
