@@ -21,3 +21,24 @@
 .flags-absence {
   height: 100px;
 }
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .side-section {
+    width: 92%;
+    margin: 20px 4% 0 4%;
+  }
+  .country-details > dd {
+    font-size: 0.9rem;
+  }
+  .country-details > dt {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .flags img {
+    max-width: 150px;
+    margin: 50px 0px 10px 0;
+  }
+}

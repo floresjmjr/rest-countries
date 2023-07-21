@@ -19,8 +19,6 @@ const WebPage = () => {
   });
   const [fetchError, setFetchError] = useState({ searchTerm: '', value: '' });
 
-  console.log('fetchError', fetchError);
-
   const lookupFlagHandler = async (country) => {
     let rawData = '';
     let results = {};
@@ -32,9 +30,7 @@ const WebPage = () => {
       setCountryInfo({});
     }
 
-    console.log('results', results);
     if (results[0]) {
-      console.log('status', 200);
       setCountryInfo({
         commonName: results[0].name.common,
         officialName: results[0].name.official,
