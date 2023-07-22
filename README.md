@@ -10,7 +10,7 @@
 - Currencies
 - Languages
 - Capital City
-- Popoulation
+- Population
 
 ### Flag and Coat of Arms Panel
 - Country Flag (on top)
@@ -19,4 +19,4 @@
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:300](http://localhost:3000) to view it in your browswer.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
