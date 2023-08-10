@@ -19,13 +19,10 @@
   margin: 50px 0px 10px 0;
 }
 
-.flags img:first-child {
+.flag-border{
   border: 1px solid black;
 }
 
-.flags-absence {
-  height: 100px;
-}
 
 /* Responsive */
 

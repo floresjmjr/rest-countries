@@ -7,7 +7,7 @@ const SideSection = (props) => {
       <div className='flags'>
         {props.flag ? (
           <React.Fragment>
-            <img src={props.flag} alt={props.flagInfo} />
+            <img className='flag-border' src={props.flag} alt={props.flagInfo} />
             <p>Country Flag</p>
             <img src={props.coatOfArms} alt='coat of arms' />
             <p>Coat of Arms</p>

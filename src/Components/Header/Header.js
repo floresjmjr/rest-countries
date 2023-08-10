@@ -3,34 +3,25 @@ import './Header.css';
 import AutoCompleteCountries from './AutoCompleteCountries';
 
 const Header = (props) => {
-  const [countryValue, setCountryValue] = useState('');
-  const [displayCountry, setDisplayCountry] = useState('');
+  const [countryName, setCountryName] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    props.lookupFlagHandler(displayCountry);
-    setCountryValue('');
-    setDisplayCountry('');
+    props.lookupCountryHandler(countryName);
+    setCountryName('');
   };
 
-  const onInputChange = (e, value) => {
-    setCountryValue(value);
-  };
-
-  const onDisplayInputChange = (e, value) => {
-    setDisplayCountry(value);
+  const inputChangeHandler = (e, value) => {
+    setCountryName(value);
   };
 
   return (
     <header className='search-header'>
       <form className='search-form' onSubmit={onSubmitHandler}>
-        <AutoCompleteCountries
-          countryValue={countryValue}
-          displayCountry={displayCountry}
-          onInputChange={onInputChange}
-          onDisplayInputChange={onDisplayInputChange}
-        />
-        <button type='submit'>Submit</button>
+        <AutoCompleteCountries countryName={countryName} inputChangeHandler={inputChangeHandler} />
+        <button type='submit' disabled={countryName === ''}>
+          Submit
+        </button>
       </form>
     </header>
   );

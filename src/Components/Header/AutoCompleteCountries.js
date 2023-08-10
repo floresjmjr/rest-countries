@@ -1,7 +1,5 @@
 import { Countries } from './Countries';
 
-import * as React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
@@ -10,19 +8,10 @@ const AutoCompleteCountries = (props) => {
     <Autocomplete
       freeSolo
       disableClearable
-      value={props.countryValue}
-      inputValue={props.displayCountry}
-      onChange={props.onInputChange}
-      onInputChange={props.onDisplayInputChange}
+      inputValue={props.countryName}
+      onInputChange={props.inputChangeHandler}
       className='country-autocomplete'
       options={Countries}
-      getOptionLabel={(option) => option}
-      renderOption={(props, option) => (
-        <Box component='li' {...props}>
-          {' '}
-          {option}
-        </Box>
-      )}
       renderInput={(params) => (
         <TextField
           {...params}
